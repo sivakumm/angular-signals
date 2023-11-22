@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { EmployeeEditorComponent } from "./employee-editor/employee-editor.component";
-import { EmployeeListComponent } from "./employee-list/employee-list.component";
+import {ChangeDetectionStrategy, Component, inject, OnInit} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {EmployeeEditorComponent} from "./employee-editor/employee-editor.component";
+import {EmployeeListComponent} from "./employee-list/employee-list.component";
+import {EmployeeDataService} from "./employee-data-service/employee-data.service";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: "app-employee-view",
@@ -11,6 +13,14 @@ import { EmployeeListComponent } from "./employee-list/employee-list.component";
   styleUrl: "./employee-view.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeViewComponent {
+export class EmployeeViewComponent implements OnInit {
+
+  employees$: Observable<Employee[]> = of([]);
+  private employeeDataService = inject(EmployeeDataService);
+
+  ngOnInit(): void {
+    this.employees$ = this.employeeDataService.loadEmployees$();
+  }
+
 
 }

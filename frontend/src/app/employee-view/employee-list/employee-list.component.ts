@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { EmployeeListItemComponent } from "../employee-list-item/employee-list-item.component";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {EmployeeListItemComponent} from "../employee-list-item/employee-list-item.component";
 
 @Component({
   selector: "app-employee-list",
@@ -11,5 +11,6 @@ import { EmployeeListItemComponent } from "../employee-list-item/employee-list-i
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeListComponent {
-
+  @Input()
+  employees: Employee[] | undefined | null;
 }
