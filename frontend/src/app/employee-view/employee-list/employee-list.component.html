@@ -5,4 +5,8 @@
   <li>Salary</li>
 </ul>
 
-<app-employee-list-item *ngFor="let employee of employees" [employee]="employee"></app-employee-list-item>
+<app-employee-list-item
+  (click)="this.selectEmployee.emit(employee)"
+  *ngFor="let employee of employees"
+  [employee]="employee"
+></app-employee-list-item>
