@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit} from "@angular/core";
+import {ChangeDetectionStrategy, Component, inject, OnInit, signal} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {EmployeeEditorComponent} from "./employee-editor/employee-editor.component";
 import {EmployeeListComponent} from "./employee-list/employee-list.component";
@@ -16,7 +16,7 @@ import {Observable, of} from "rxjs";
 export class EmployeeViewComponent implements OnInit {
 
   employees$: Observable<Employee[]> = of([]);
-  selectedEmployee: Employee | undefined;
+  selectedEmployee = signal<Employee | null>(null);
   private employeeDataService = inject(EmployeeDataService);
 
   ngOnInit(): void {

@@ -1,4 +1,12 @@
-<h2>Full name: {{fullName()}}</h2>
+<ng-container [ngSwitch]="mode()">
+  <h2 *ngSwitchCase="'CREATE'">
+    Create a new employee
+  </h2>
+  <h2 *ngSwitchCase="'UPDATE'">
+    Update employee '{{fullName()}}'
+  </h2>
+</ng-container>
+
 <form>
   <label for="firstName">First Name</label>
   <input

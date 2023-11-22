@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Outpu
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 
+export type EmployeeEditorMode = 'CREATE' | 'UPDATE';
+
 @Component({
   selector: 'app-employee-editor',
   standalone: true,
@@ -13,19 +15,22 @@ import {FormsModule} from "@angular/forms";
 export class EmployeeEditorComponent {
 
   @Input()
-  employee: Employee | undefined;
+  employee: Signal<Employee | null> = signal(null);
 
   @Output()
   save = new EventEmitter<Employee>();
+
+  mode: Signal<EmployeeEditorMode>;
+  fullName: Signal<String>;
 
   firstName = signal("");
   lastName = signal("");
   role = signal("");
   salary = signal(0);
 
-  fullName: Signal<string>;
 
   constructor() {
+    this.mode = computed(() => !this.employee() ? 'CREATE' : 'UPDATE');
     this.fullName = computed(() => `${this.firstName()} ${this.lastName()}`);
   }
 
