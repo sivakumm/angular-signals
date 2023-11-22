@@ -3,7 +3,7 @@
   [employee]="selectedEmployee">
 </app-employee-editor>
 <app-employee-list
-  (selectEmployee)="selectedEmployee.set($event)"
+  (selectEmployee)="selectedEmployee = $event"
   [employees]="employees$ | async"
 ></app-employee-list>
 
