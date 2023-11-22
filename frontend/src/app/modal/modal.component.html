@@ -1,0 +1,9 @@
+<div (click)="closeModal()" *ngIf="isOpened()" class="backdrop">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Salary View</h2>
+      <p>Salary of USER is SALARY.</p>
+    </div>
+    <button (click)="closeModal()" class="close">&times;</button>
+  </div>
+</div>

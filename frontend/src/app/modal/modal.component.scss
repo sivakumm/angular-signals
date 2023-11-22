@@ -1,0 +1,35 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  min-width: 30vw;
+  min-height: 30vh;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 30px;
+  padding: 1.4rem;
+  position: relative;
+
+  .close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    background-color: white;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
