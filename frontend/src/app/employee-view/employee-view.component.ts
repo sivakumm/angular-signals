@@ -16,11 +16,14 @@ import {Observable, of} from "rxjs";
 export class EmployeeViewComponent implements OnInit {
 
   employees$: Observable<Employee[]> = of([]);
+  selectedEmployee: Employee | undefined;
   private employeeDataService = inject(EmployeeDataService);
 
   ngOnInit(): void {
     this.employees$ = this.employeeDataService.loadEmployees$();
   }
 
-
+  saveEmployee(newEmployee: Employee) {
+    console.log('save employee');
+  }
 }

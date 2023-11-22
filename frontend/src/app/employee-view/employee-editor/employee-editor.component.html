@@ -1,1 +1,40 @@
-<p>employee-editor works!</p>
+<h2>Full name: {{fullName()}}</h2>
+<form>
+  <label for="firstName">First Name</label>
+  <input
+    (ngModelChange)="firstName.set($event)"
+    [ngModel]="firstName()"
+    id="firstName"
+    name="firstName"
+    placeholder="First Name"
+    required
+  />
+  <label for="lastName">First Name</label>
+  <input
+    (ngModelChange)="lastName.set($event)"
+    [ngModel]="lastName()"
+    id="lastName"
+    name="lastName"
+    placeholder="Last Name"
+    required
+  />
+  <label for="role">Role</label>
+  <input
+    (ngModelChange)="role.set($event)"
+    [ngModel]="role()"
+    id="role"
+    name="role"
+    placeholder="Role"
+    required
+  />
+  <label for="salary">Salary</label>
+  <input
+    (ngModelChange)="salary.set($event)"
+    [ngModel]="salary()"
+    id="salary"
+    name="salary"
+    placeholder="Salary"
+    required
+  />
+  <button (click)="saveForm()">save</button>
+</form>

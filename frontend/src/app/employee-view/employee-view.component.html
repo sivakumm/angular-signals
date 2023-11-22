@@ -1,3 +1,3 @@
-<app-employee-editor></app-employee-editor>
+<app-employee-editor (save)="saveEmployee($event)" [employee]="selectedEmployee"></app-employee-editor>
 <app-employee-list [employees]="employees$ | async"></app-employee-list>
 
