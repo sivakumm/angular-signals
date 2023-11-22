@@ -1,1 +1,25 @@
 GET http://localhost:3000/api/employees
+
+###
+
+POST http://localhost:3000/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Peter",
+  "lastName": "Muster",
+  "role": "Dev",
+  "salary": 100000
+}
+
+
+###
+
+PUT http://localhost:3000/api/employees
+Content-Type: application/json
+
+{
+  "id": "0fbf492d-820b-48a4-ab5a-fa3aae822434",
+  "role": "Developer",
+  "salary": 100000
+}
