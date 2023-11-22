@@ -1,48 +1,62 @@
-<ng-container [ngSwitch]="mode()">
-  <h2 *ngSwitchCase="'CREATE'">
-    Create a new employee
-  </h2>
-  <h2 *ngSwitchCase="'UPDATE'">
-    Update employee '{{fullName()}}'
-  </h2>
-</ng-container>
+<section>
+  <ng-container [ngSwitch]="mode()">
+    <h2 *ngSwitchCase="'CREATE'">
+      New employee
+    </h2>
+    <h2 *ngSwitchCase="'UPDATE'">
+      Edit employee {{fullName()}}
+    </h2>
+  </ng-container>
 
-<form>
-  <label for="firstName">First Name</label>
-  <input
-    (ngModelChange)="firstName.set($event)"
-    [ngModel]="firstName()"
-    id="firstName"
-    name="firstName"
-    placeholder="First Name"
-    required
-  />
-  <label for="lastName">First Name</label>
-  <input
-    (ngModelChange)="lastName.set($event)"
-    [ngModel]="lastName()"
-    id="lastName"
-    name="lastName"
-    placeholder="Last Name"
-    required
-  />
-  <label for="role">Role</label>
-  <input
-    (ngModelChange)="role.set($event)"
-    [ngModel]="role()"
-    id="role"
-    name="role"
-    placeholder="Role"
-    required
-  />
-  <label for="salary">Salary</label>
-  <input
-    (ngModelChange)="salary.set($event)"
-    [ngModel]="salary()"
-    id="salary"
-    name="salary"
-    placeholder="Salary"
-    required
-  />
-  <button (click)="saveForm()">save</button>
-</form>
+  <form>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        (ngModelChange)="firstName.set($event)"
+        [ngModel]="firstName()"
+        id="firstName"
+        name="firstName"
+        placeholder="First Name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">First Name</label>
+      <input
+        (ngModelChange)="lastName.set($event)"
+        [ngModel]="lastName()"
+        id="lastName"
+        name="lastName"
+        placeholder="Last Name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input
+        (ngModelChange)="role.set($event)"
+        [ngModel]="role()"
+        id="role"
+        name="role"
+        placeholder="Role"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input
+        (ngModelChange)="salary.set($event)"
+        [ngModel]="salary()"
+        id="salary"
+        name="salary"
+        placeholder="Salary"
+        required
+      />
+    </div>
+
+    <button (click)="saveForm()">Save</button>
+  </form>
+</section>
