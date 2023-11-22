@@ -1,3 +1,8 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: "employees",
+    loadComponent: () => import("./employee-view/employee-view.component").then(m => m.EmployeeViewComponent)
+  }
+];
