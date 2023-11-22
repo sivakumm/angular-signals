@@ -4,6 +4,7 @@
 </app-employee-editor>
 <app-employee-list
   (selectEmployee)="selectedEmployee = $event"
+  (showEmployeeSalary)="showEmployeeSalary($event)"
   [employees]="employees$ | async"
-></app-employee-list>
+/>
 

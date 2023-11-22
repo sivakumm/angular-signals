@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {EmployeeListItemComponent} from "../employee-list-item/employee-list-item.component";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { EmployeeListItemComponent } from "../employee-list-item/employee-list-item.component";
 
 @Component({
   selector: "app-employee-list",
@@ -13,7 +13,10 @@ import {EmployeeListItemComponent} from "../employee-list-item/employee-list-ite
 export class EmployeeListComponent {
   @Input()
   employees: Employee[] | undefined | null;
+
   @Output()
   selectEmployee = new EventEmitter<Employee>();
 
+  @Output()
+  showEmployeeSalary = new EventEmitter<Employee>();
 }

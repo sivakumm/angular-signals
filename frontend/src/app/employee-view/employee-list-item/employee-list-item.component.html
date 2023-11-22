@@ -3,6 +3,6 @@
   <li>{{employee?.lastName}}</li>
   <li>{{employee?.role}}</li>
   <li>
-    <button>Show Salary</button>
+    <button (click)="showEmployeeSalary.emit(employee)">Show Salary</button>
   </li>
 </ul>

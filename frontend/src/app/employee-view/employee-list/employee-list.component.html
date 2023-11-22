@@ -7,6 +7,7 @@
 
 <app-employee-list-item
   (click)="this.selectEmployee.emit(employee)"
+  (showEmployeeSalary)="showEmployeeSalary.emit($event)"
   *ngFor="let employee of employees"
   [employee]="employee"
 ></app-employee-list-item>

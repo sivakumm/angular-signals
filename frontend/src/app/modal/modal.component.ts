@@ -13,9 +13,13 @@ import { ModalService } from "./modal.service";
 export class ModalComponent {
 
   isOpened: Signal<boolean>;
+  title: Signal<string>;
+  content: Signal<string>;
 
   constructor(private modalService: ModalService) {
     this.isOpened = this.modalService.isOpened();
+    this.title = this.modalService.getTitle();
+    this.content = this.modalService.getContent();
   }
 
   @HostListener("document:keydown.ESC")
