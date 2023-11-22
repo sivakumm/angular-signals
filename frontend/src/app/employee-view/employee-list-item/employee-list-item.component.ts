@@ -15,4 +15,9 @@ export class EmployeeListItemComponent {
 
   @Output()
   showEmployeeSalary = new EventEmitter<Employee>();
+
+  showSalary(event: MouseEvent): void {
+    event.stopPropagation();
+    this.showEmployeeSalary.emit(this.employee);
+  }
 }
