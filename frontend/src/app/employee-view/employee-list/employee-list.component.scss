@@ -1,0 +1,11 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0.6rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+li {
+  list-style-type: none;
+}

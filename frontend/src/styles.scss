@@ -4,3 +4,15 @@
   padding: 0;
   margin: 0;
 }
+
+button {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #bbddff;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: #66b2ff;
+  }
+}
