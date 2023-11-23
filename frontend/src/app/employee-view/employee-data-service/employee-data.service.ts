@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Injectable, signal, Signal} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {lastValueFrom, Observable} from "rxjs";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,12 @@ export class EmployeeDataService {
     return this.http.get<Array<Employee>>('/api/employees');
   }
 
-  public async loadEmployees(): Promise<Employee[]> {
-    const employees$ = this.loadEmployees$();
-    return await lastValueFrom(employees$);
+  public loadEmployees(): Signal<Employee[]> {
+    const employeeSignal = signal<Employee[]>([]);
+    this.loadEmployees$().subscribe(employees => {
+      employeeSignal.set(employees);
+    });
+    return employeeSignal.asReadonly();
   }
+
 }
